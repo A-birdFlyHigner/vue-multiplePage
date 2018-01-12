@@ -1,4 +1,4 @@
-# vue-vue-multiplePage
+# vue-multiplePage
 
 > vue多页面配置方案（研究时为了重构公司官网）
 
