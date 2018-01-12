@@ -1,6 +1,6 @@
 <template>
   <div >
-   啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+   <h1>pages2</h1>
   </div>
 </template>
 
