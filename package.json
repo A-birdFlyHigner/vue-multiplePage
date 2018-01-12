@@ -1,7 +1,7 @@
 {
-  "name": "qianli",
+  "name": "sxc",
   "version": "1.0.0",
-  "description": "钱粒科技官方网站",
+  "description": "vue多页面配置方案",
   "author": "Shixucheng <516441839@qq.com>",
   "private": true,
   "scripts": {
