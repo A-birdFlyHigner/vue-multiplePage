@@ -26,6 +26,6 @@ npm run e2e
 # run all tests
 npm test
 
-内部有俩页面，index.html和test.html，路由为设计，需要进一步研究，若有大牛偶然看见，还请指教设计方式，微信：sxc516441839
+可自定义配置pages文件夹，需要和config中moduleName配置项保持一致，目前入口只支持pages/**/**.js形式，层级多或者少都会报错，有意者可自行修改util中的entry配置，不当之处还请指教设计方式，微信：sxc516441839
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
