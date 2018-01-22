@@ -84,4 +84,6 @@ module.exports = {
   },
 
   build: buildOptions,
+  //根据业务自定义的文件夹多页面文件夹名称，srcnebula也必须更改
+  moduleName: 'pages'
 }

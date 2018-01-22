@@ -6,7 +6,8 @@ const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
-
+const opn = require('opn')
+const express = require('express')
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
@@ -75,6 +76,21 @@ module.exports = new Promise((resolve, reject) => {
         ? utils.createNotifierCallback()
         : undefined
       }))
+      //引入express，配合webpack-dev-middleware中间件实现构建完成后的自定义操作
+      const app = express()
+      const compiler = webpack(devWebpackConfig)
+      const webpackDevMiddleware = require('webpack-dev-middleware')(compiler, {
+        publicPath: devWebpackConfig.output.publicPath,
+        quiet: true
+      })
+      app.use(webpackDevMiddleware)
+      //此处自己设置默认打开的路径
+      const uri = `http://localhost:${port}/${config.moduleName}/index/index.html`
+      webpackDevMiddleware.waitUntilValid(function () {
+        console.log('> 构建完成，已自动在浏览器打开页面，如未自动打开，请手工复制下面的链接，复制到浏览器里打开。')
+        console.log('> Listening at ' + uri + '\n')
+        opn(uri)
+      })
 
       resolve(devWebpackConfig)
     }
